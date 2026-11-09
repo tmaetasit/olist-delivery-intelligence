@@ -1,0 +1,61 @@
+order_id,is_late,n_items,n_sellers,review_score,comment,complaint,rule_correct_claude_check
+accc1fd1e3c84881e0a9b27f8b611386,0,2,1,1,Recebi somente 1 produto apesar de ter pedido e pago 2 e não gostei da qualidade. Quero devolver,partial_or_missing,1
+558269f572e3a3884ce996dc0d4f1426,0,2,2,1,"Já recebi todas as outras, menos a vermelha, aguardando resposta suas.",seller_service,0
+d83e73ca49e7e9ec7ba0154139858fc8,1,2,1,1,A previsão de entrega era para o dia 22/08 mas até agora não chegou.,not_delivered,1
+433a9459ece4c6083b2aa89b2480a1a8,1,1,1,1,O prazo encerrou no dia 10/11/2018 e até presente data não foi entregue.,not_delivered,1
+8a9be36ffd78382f9ac518945e909636,0,1,1,1,Produto do camelô... 100% Paraguai Pior compra que já fiz na internet. Anúncio não condiz com o produto. Quero devolver...,quality_not_as_described,1
+2e0ff81253a7fa54020cedbb9835d1c7,1,1,1,2,Ainda não recebi o produto,not_delivered,1
+b0ea6041ac66a83e6a8508f3954edf91,1,1,1,2,creio que o atraso e dos correios,late,1
+b28d8bbc74731fb20234ba949894dd13,0,1,1,1,"Entrega rápida, mas esperava uma qualidade melhor do tapete, pelo preço aq na cidade encontrei melhor,mas gostei do desenho.",quality_not_as_described,1
+04064f81e71399939f72222d7c701c47,1,1,1,2,Estou no agurdo do meu produto,other,0
+0aed18a03ea2ccdb5981aea3524b304d,0,2,1,1,Pedi duas cubas so recebi uma estou aguardando resposta de como posso resolver isso no mais a entrega foi no prazo e a que recebi e de boa qualidade,partial_or_missing,1
+996205a42aa5c733caed84046b376508,0,1,1,2,Fiz o teste do produto mais ele nao sendo reconhecido pelo XBOX 360,other,0
+53f3cb0dcdecd62675e235186f24adcf,1,1,1,1,"Não entregou até agora,éo correio fala que não tinha ninguém pra recebe",not_delivered,1
+a39da066364213f94f3fe99a34a1c4b2,0,1,1,2,"Foi ruim pq eu tive q buscar no correio o produto e depois vi por mais barato em outros sites. Então, pesquisaria mt antes de comprar.",quality_not_as_described,0
+e996a03662988d5ddce1d6bc5cfcde64,0,1,1,1,Pedi o estorno da compra e até agora nada de estorno e zero resposta,not_delivered,0
+236087c146bdb55ebd6d5316b00308d9,0,1,1,1,"Produto fraco, de péssima resistência. Não vale nada!",quality_not_as_described,1
+7f3be4acbc6f640562b088d72add56b9,0,2,1,1,A compra foram dois controles e chegou um. Cadê o outro?,other,0
+9734c61e70431951ceea6da4c1c2a063,1,1,1,1,"Ainda não recebi o produto, e considerando a paralisação de caminhoneiros, já era pra ter sido entregue.",not_delivered,1
+bb3728fa34a2d05bb2bd04df7dad8418,1,1,1,1,O prazo já expirou e ainda não recebi o produto.,not_delivered,1
+bd72f84bd892f4e829d7fa262004487d,0,1,1,1,"O atendimento pela central é horrível. Ninguém atende o telefone, meu produto chego errado! Vou reclamar nas redes sociais ( não sei como essa loja ainda funciona) é melhor fechar com um serviço",wrong_item,1
+a1165481ec8e2c96688233954c7cfb7b,1,3,1,1,"Disseram q foi entregue sem sucesso sendo q no dia ninguem tinha saído de casa, eu tive q abrir uma reclamação não loja para o produto ser reenviado.",other,0
+5f584984f781a737f7a40522e1e8db52,0,2,2,1,Minha compra venho incompleta. Tá faltando o chicote. Tento liga e só tem gravação não consigo falar com atendente.,partial_or_missing,1
+43e8cdbf9dd6228a4f277835f9176770,0,1,1,1,demora na entrega do produto,late,1
+59ad2910ac1515ca2b7aee1754686306,0,1,1,2,"O carteiro nao entregou o produto informando que não havia ninguém na residência para recebê lo, o que não é verdade. Tive que ir retirar o produto pessoalmente e ainda fui mal atendido no correio.",not_delivered,1
+2cb6f509b0ff4794888a4f664f857dca,1,1,1,1,Preciso resolver meu problema,other,1
+42802b4a173a8c9b8a7039b19c419fc6,0,1,1,1,"Adquiri o kit, ou seja, a base com o bebê conforto, porém quando recebi estava somente a base. Estou no aguardo da solução do meu problema.",other,0
+dc32acbe8d41196887e5d7ac6c2972bd,1,1,1,1,Não recomendaria a targaryen a outros compradores.,other,1
+52b7fa35b1e5c8bdea5869804dced415,0,1,1,1,Peço um produto por um código e vem outro totalmente diferente.,wrong_item,1
+d6352e09945d985e2d2ef82baed4cec0,1,1,1,1,"A entrega foi um atraso total. Tive que comprar o produto em outra loja, e chegou antes do este. Agora quero fazer a devolução.",late,1
+3e269d8ec37b0e8f74c0aaac57c8b059,0,4,1,2,Pedi 4 controles e recebi apenas 3. Estou aguardando se entregarão o outro nesses dias.,partial_or_missing,1
+753e0ba8400bf53314098772093ca9bb,0,1,1,2,não atendem solicitações,other,0
+98d7e0d168a393093a391519c1ee1e8e,1,1,1,1,não foi entregue,not_delivered,1
+b2270b13a48230d3898b0e5a2abcac01,0,1,1,1,"O produto chegou antes do prazo, porém o material é de péssima qualidade, veio com fiapos, linhas soltando, e com defeitos.",damaged_defective,1
+13f4bad08354705fbeb23f41f08c31c4,0,1,1,1,"ALÉM DE RECEBER O PRODUTO ERRADO,VEIO DENTRO DA CX UMA CARTA DE UMA OUTRA CLIENTE INSATISFEITA POR TB TER RECEBIDO O PRODUTO ERRADO,CANCELEI MINHA COMPRA DEPOIS DESSE OCORRIDO DEU PVER A CREDIBILIDADE",wrong_item,1
+e04f952af9764d87d5a0ac5e7cf48cca,0,1,1,2,Gostei veio como esperando nota 100 recomendo muito bom legal,other,1
+de19da2c7ae72b08355e23a5a0f33351,0,1,1,1,"Consta no rastreamento dos correios que foi encaminhado para a minha cidade Ribeirão Bonito, mas o recebimento foi na cidade de Sorocaba-sp. Em contato com os correios foi entregue p Juliana.",late,0
+c2d61723f3e69b1e2bb9cc9c638c0b5e,0,1,1,2,"Cobre-leito sem forro, ficando com um pouco de transparência, pintura com aspecto desbotado. Porta-travesseiros sem costura, totalmente lisos. Muito abaixo da expectativa. Não vale a compra.",quality_not_as_described,1
+6e5fc24bede0e47389f2042dc5f8473f,0,1,1,1,"NÃO SEI SE CRIEI MUITAS EXPECTATIVAS, MAS ACHEI O PRODUTO SIMPLES.",quality_not_as_described,1
+fca018a47e2170d1f13529d7542d6438,0,1,1,1,"O produto consta como entregue pelo correios, mas não chegou.",not_delivered,1
+2b2e47d32f64348664d0b1c367308a67,0,1,1,1,Não recebi o produto que comprei!!,not_delivered,1
+2afae7f170a9a4b132f5d26a2aa53feb,0,1,1,2,"A principio a gente recebe o produto num saquinho plástico super amarrado e cheio de fita adesiva, e assim que ele vem. Péssimo",quality_not_as_described,1
+a11cb431739ce0d512e8a8e96654722f,0,1,1,1,"produto veio errado, fiz todo processo para fazer a troca. me deram 2 dias para me responder e nada. liguei e pediram para esperar. amanhã vence o prazo pra devolver ou trocar. vão me obrigar a ficar",wrong_item,1
+341dc4ea81fabe7de6af564b72fcf3e2,0,1,1,2,Eu comprei o KIT cartuchos 664XL (preto e Colorido) e mandaram ERRADO Kit de cartuchos 662XL . QUERO QUE TROQUE PELO PRODUTO CORRETO COM ESTA NO PEDIDO E NA NOTA FISCAL QUE É : KIT CARTUCHOS 664XL .,wrong_item,1
+ec375850cc8dd9f34f98be4fd8657576,0,1,1,2,"Recebi o produto ontem. Como se trata de um ventilador de teto comercial e pelo alto preço, imaginei que no mínimo as hélices eram de aço,mas não, são de plástico.",other,0
+03af60619b8abd880dd136ed837be800,1,1,1,1,Não recebi o produto aínda,not_delivered,1
+9ad25d16fe851c6e868769cec5d2882e,0,3,1,2,"Comprei três luminárias pendentes, recebi apenas duas.",partial_or_missing,1
+bb3463b1de5e29d8d574a1e422777763,0,1,1,1,"Tivemos que retirar nos correios , maior burocracia , sempre comprei com a lannister e nunca tive esse problema , , não fiquei satisfeito , espero que na peoxima seje diferente .",quality_not_as_described,0
+507920861be390ea5beb588607e4b0ab,0,1,1,2,Este recebi certo.,other,1
+b95cae4001dc3efdaa739478cf9c92e4,0,1,1,2,O lustre veio sem as lâmpadas,partial_or_missing,1
+eaae5bd20fb15d85aa673d9b7c0e8ca5,1,1,1,2,"Bom dia! Estou insatisfeita com a segunda compra, pois era para ser entregue até 27/04/2017 e até o momento não a recebi. Já terminei de pagar e a mercadoria não me foi entregue.",not_delivered,1
+35c2decdf1241aa585186aa82df2f768,1,2,1,1,"FOI FEITO O PEDIDO DE 2 (UND) DO PRODUTO, CHEGOU APENAS 1(UND), E MESMO ASSIM FORA DO PRAZO DE ENTREGA, JÁ ENVIEI VÁRIOS EMAILS PARA RESOLVE O PROBLEMA E ATE AGORA NÃO OBTIVE NENHUMA RESPOSTA.!",partial_or_missing,1
+775747dc325485aedc9970fb0eda8b86,1,2,1,2,comprei dois produtos e só recebi um sem nota fiscal,partial_or_missing,1
+66eebf0e266f975af04450e28dcadbf1,0,1,1,2,"Produto errado. Descrição dizia com Bluetooth e atendia ligações de até 2 celulares. O produto que chegou não faz isso, não vou trocar para não me incomodar mais, azar...",wrong_item,1
+bee4fbc438d2d48527e812cb6a1c8166,1,1,1,1,"embora tenha comprado o produto durante a Black Friday para presentear uma criança da família, o presente não chegou a tempo do Natal. Fui obrigada a comprar às pressas um presente substituto",not_delivered,1
+0a8ad519fc5624a7862124decee24b27,0,1,1,1,Parceiro targaryen não recomendado. Produto veio errado e devolução demorada para ser resolvida. Mais de 30 dias sem solução.,wrong_item,1
+a8d69f3045be9fa0ea3aac3971741980,0,1,1,1,"Chegou com defeito,não liga",damaged_defective,1
+328ae377ef041759aacefa4eee149cdc,1,1,1,1,Produto ainda nao foi entregue. Ainda continuo no aguardo.,not_delivered,1
+47aa694d87f6ae4995bd02d6e8d9132d,0,1,1,1,"O produto veio todo quebrado o papel bolha marrom lotado de sombra, não recomendo a loja quero meu dinheiro de volta péssima entrega. Por ser um produto frágil, deveria vim dentro de uma caixa",damaged_defective,1
+b0cb43bc4638d44188430b7d42b35866,0,1,1,1,"Não recebi o produto ao qual encomendei! Recebi outro, que não era do meu menor interesse, no local.",wrong_item,1
+397af12009650f370c819563b8e6c68d,0,1,1,1,"O produto que comprei veio em desacordo . Estou no aguardo do produto que comprei. Fico chateado com isso, pois mandaram um produto Ching ling no lugar e oque me chama a atenção é uma empresa errar.",not_delivered,0
+7dbb5ab142acb99429b243fe157f03a7,0,1,1,1,"Falta peça no produto, estou aguardando a troaca da mercadoria.",other,0

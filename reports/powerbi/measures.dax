@@ -76,3 +76,11 @@ RETURN DIVIDE ( LowOnTime, LowAll )
 // ---------- Helpers for visuals ----------
 Late Flag Label =
 IF ( SELECTEDVALUE ( fact_orders[is_late] ) = 1, "Late", "On time" )
+
+// ---- Page 3: Why Customers Complain (table fact_complaints, from src/ws2_rules.py) ----
+Complaints = COUNTROWS(fact_complaints)
+Complaint Share = DIVIDE([Complaints], CALCULATE([Complaints], ALLSELECTED(fact_complaints[complaint]), ALLSELECTED(fact_complaints[complaint_group])))
+On time = CALCULATE([Complaint Share], fact_complaints[delivery_status] = "On time")
+Late = CALCULATE([Complaint Share], fact_complaints[delivery_status] = "Late")
+On-time Product Complaint % = DIVIDE(CALCULATE([Complaints], fact_complaints[delivery_status] = "On time", fact_complaints[complaint_group] = "Product & fulfilment"), CALCULATE([Complaints], fact_complaints[delivery_status] = "On time"))
+Missing Item Share = DIVIDE(CALCULATE([Complaints], fact_complaints[complaint] = "Partial / missing item"), [Complaints])

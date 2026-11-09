@@ -136,6 +136,33 @@ def fig_business_case():
     save(fig, "fig6_business_case.png", "reports/excel/business_case.xlsx (assumptions labelled)")
 
 
+def fig_complaints():
+    f = os.path.join(P, "ws2", "low_reviews_classified.csv")
+    if not os.path.exists(f):
+        return
+    d = pd.read_csv(f)
+    names = {"not_delivered": "Not delivered", "late": "Late", "partial_or_missing": "Partial / missing item",
+             "wrong_item": "Wrong item", "damaged_defective": "Damaged / defective",
+             "quality_not_as_described": "Quality / not as described", "seller_service": "Seller service",
+             "other": "Other / unclear"}
+    t = pd.crosstab(d.complaint, d.is_late, normalize="columns").mul(100)
+    order = ["partial_or_missing", "quality_not_as_described", "wrong_item", "damaged_defective",
+             "not_delivered", "late", "seller_service", "other"]
+    t = t.reindex(order)
+    fig, ax = frame("On-time orders get low reviews for what arrives, not when",
+                    f"Complaint mix of {len(d):,} 1-2 star reviews with text, by delivery status (%)", size=(9.5, 5.4))
+    ax.grid(axis="y", visible=False); ax.grid(axis="x", color=GRID, linewidth=0.8)
+    y = range(len(order)); h = 0.38
+    b1 = ax.barh([i - h / 2 for i in y], t[0], h, color=BLUE, label=f"On time (n={int((d.is_late==0).sum()):,})")
+    b2 = ax.barh([i + h / 2 for i in y], t[1], h, color=GREY, label=f"Late (n={int((d.is_late==1).sum()):,})")
+    for bars in (b1, b2):
+        for b in bars:
+            ax.text(b.get_width() + 0.6, b.get_y() + b.get_height() / 2, f"{b.get_width():.0f}%", va="center", fontsize=9, color=INK2)
+    ax.set_yticks(list(y)); ax.set_yticklabels([names[k] for k in order]); ax.invert_yaxis()
+    ax.set_xlim(0, 70); ax.legend(frameon=False, loc="lower right")
+    save(fig, "fig7_complaints.png", "Olist reviews; Portuguese rule classifier, macro-F1 0.82 on held-out labels", left=0.25)
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
-    fig_score_by_delay(); fig_stage_days(); fig_states(); fig_monthly(); fig_model(); fig_business_case()
+    fig_score_by_delay(); fig_stage_days(); fig_states(); fig_monthly(); fig_model(); fig_business_case(); fig_complaints()

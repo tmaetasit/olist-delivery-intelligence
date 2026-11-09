@@ -38,3 +38,13 @@ Create table `_Measures`, then paste each measure from `measures.dax`. Format ra
 | Late rate, state AL | 21.5% |
 
 Save as `reports/powerbi/olist_delivery.pbix`, export each page as PNG into `reports/powerbi/` for the README.
+
+## Page 3: Why Customers Complain
+
+1. Run `python src/ws2_rules.py` to create `data/processed/mart/fact_complaints.csv` (one row per 1–2 star review with text).
+2. Load it like the other CSVs (Csv.Document → PromoteHeaders → types, culture "en-US"). It needs no relationship: every visual on this page uses only this table.
+3. Add the six measures at the end of `measures.dax`.
+4. Visuals:
+   - Card: `On-time Product Complaint %` (60.4%).
+   - Clustered bar: Y = `complaint`, X = `On time` and `Late` (one series per status). Titled "On-time orders get low reviews for what arrives, not when".
+   - Clustered column: X = `seller_count`, Y = `Missing Item Share` (47.6% multi-seller vs 12.8% single seller).

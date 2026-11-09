@@ -1,0 +1,24 @@
+# Raw data (download from Kaggle, see README)
+data/raw/*
+!data/raw/.gitkeep
+*.zip
+
+# Local databases and outputs
+*.db
+*.sqlite
+data/processed/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Office temp files
+~$*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

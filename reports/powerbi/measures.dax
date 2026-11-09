@@ -1,0 +1,78 @@
+// Olist Delivery Intelligence — DAX measures (KPI dictionary v0.2)
+// Create a table called _Measures (Enter data, one blank column) and add each measure to it.
+// Filter context for every page: fact_orders[in_window] = 1 (page or report-level filter).
+
+// ---------- Volume and value (KPI 1–3) ----------
+Total Orders =
+CALCULATE ( DISTINCTCOUNT ( fact_orders[order_id] ), fact_orders[is_delivered] = 1 )
+
+Revenue =
+CALCULATE ( SUM ( fact_orders[revenue] ), fact_orders[is_delivered] = 1 )
+
+AOV =
+DIVIDE ( [Revenue], [Total Orders] )
+
+Revenue YoY % =
+VAR Prev = CALCULATE ( [Revenue], SAMEPERIODLASTYEAR ( dim_date[date] ) )
+RETURN DIVIDE ( [Revenue] - Prev, Prev )
+
+// ---------- Satisfaction (KPI 4–5) ----------
+Avg Review Score =
+CALCULATE ( AVERAGE ( fact_orders[review_score] ), fact_orders[is_delivered] = 1 )
+
+Low Review Rate =
+VAR Reviewed = CALCULATE ( COUNTROWS ( fact_orders ), NOT ISBLANK ( fact_orders[review_score] ), fact_orders[is_delivered] = 1 )
+VAR Low      = CALCULATE ( COUNTROWS ( fact_orders ), fact_orders[is_low_review] = 1, fact_orders[is_delivered] = 1 )
+RETURN DIVIDE ( Low, Reviewed )
+
+// ---------- Delivery (KPI 6–9, 13) ----------
+// Timing KPIs exclude the 189 orders with out-of-order timestamps.
+Late Orders =
+CALCULATE ( COUNTROWS ( fact_orders ), fact_orders[is_late] = 1, fact_orders[is_delivered] = 1, fact_orders[chronology_error] = 0 )
+
+Timed Orders =
+CALCULATE ( COUNTROWS ( fact_orders ), fact_orders[is_delivered] = 1, fact_orders[chronology_error] = 0 )
+
+Late Delivery Rate =
+DIVIDE ( [Late Orders], [Timed Orders] )
+
+On-time Delivery % =
+1 - [Late Delivery Rate]
+
+Avg Delivery Days =
+CALCULATE ( AVERAGE ( fact_orders[delivery_days] ), fact_orders[is_delivered] = 1 )
+
+Avg Promised Days =
+CALCULATE ( AVERAGE ( fact_orders[promised_days] ), fact_orders[is_delivered] = 1, fact_orders[chronology_error] = 0 )
+
+Avg Days Late =
+CALCULATE ( AVERAGE ( fact_orders[eta_buffer_days] ) * -1, fact_orders[is_late] = 1, fact_orders[chronology_error] = 0 )
+
+ETA Buffer Days =
+CALCULATE ( AVERAGE ( fact_orders[eta_buffer_days] ), fact_orders[is_delivered] = 1 )
+
+// ---------- Lifecycle stages (KPI 11) ----------
+Avg Approval Days = AVERAGE ( fact_orders[approval_days] )
+Avg Handling Days = AVERAGE ( fact_orders[handling_days] )
+Avg Transit Days  = AVERAGE ( fact_orders[transit_days] )
+
+// ---------- Sellers (KPI 10) — item level ----------
+Seller Handover Late Rate =
+DIVIDE (
+    CALCULATE ( COUNTROWS ( fact_order_items ), fact_order_items[handover_late] = 1 ),
+    CALCULATE ( COUNTROWS ( fact_order_items ), NOT ISBLANK ( fact_order_items[handover_late] ) )
+)
+
+// ---------- Freight (KPI 12) ----------
+Freight Ratio =
+DIVIDE ( SUM ( fact_order_items[freight_value] ), SUM ( fact_order_items[price] ) )
+
+// ---------- Complaints (KPI 14) ----------
+Low Reviews from On-time % =
+VAR LowAll    = CALCULATE ( COUNTROWS ( fact_orders ), fact_orders[is_low_review] = 1, fact_orders[is_delivered] = 1 )
+VAR LowOnTime = CALCULATE ( COUNTROWS ( fact_orders ), fact_orders[is_low_review] = 1, fact_orders[is_late] = 0, fact_orders[is_delivered] = 1 )
+RETURN DIVIDE ( LowOnTime, LowAll )
+
+// ---------- Helpers for visuals ----------
+Late Flag Label =
+IF ( SELECTEDVALUE ( fact_orders[is_late] ) = 1, "Late", "On time" )

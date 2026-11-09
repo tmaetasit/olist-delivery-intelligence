@@ -32,6 +32,14 @@ Analysis window: Jan 2017 – Aug 2018 (99,092 orders; 96,203 delivered).
 | WS3 Predict | Logistic regression catches **24.6%** of late orders in its top 10% vs **14.2%** for the seller-history rule, but only 1 in 9 alerts is right → conditional go, low-cost actions only | [model card](docs/model_card.md) |
 | WS4 Design and Prove | Early warning **loses R$ 40.5k in year 1** at this volume (break-even at 12.7× volume) → recommend route-calibrated ETA + seller SLA; pilot needs **8,438 orders (~6 weeks)** | [FRD and pilot](docs/ws4_frd_and_pilot.md) · [business case](reports/excel/business_case.xlsx) · [seller scorecard](reports/excel/seller_scorecard.xlsx) |
 
+### Power BI report
+
+Two pages, 18 DAX measures on a star schema ([measures](reports/powerbi/measures.dax) · [build guide](reports/powerbi/BUILD_GUIDE.md)). Each chart title states the finding.
+
+![Power BI: Executive Overview](reports/powerbi/executive_overview.png)
+
+![Power BI: Delivery Stages](reports/powerbi/delivery_stages.png)
+
 ### Key charts
 
 | | |
@@ -103,7 +111,7 @@ docs/              BRD, KPI dictionary, data profile, model card
 - [x] D4 Repository set-up
 - [x] WS0 Data foundation: SQL pipeline, tests, cleaning log, data dictionary
 - [x] WS1 Diagnose: analysis, process mining, DAX measures
-- [ ] WS1 Power BI report (.pbix) — build guide ready
+- [x] WS1 Power BI report: 2 pages (Executive Overview, Delivery Stages)
 - [x] WS2 kit: taxonomy, sample, classifier, evaluator
 - [ ] WS2 human labels + LLM run (local LM Studio)
 - [x] WS3 Predict: model, SHAP, model card

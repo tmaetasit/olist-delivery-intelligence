@@ -32,6 +32,15 @@ Analysis window: Jan 2017 – Aug 2018 (99,092 orders; 96,203 delivered).
 | WS3 Predict | Logistic regression catches **24.6%** of late orders in its top 10% vs **14.2%** for the seller-history rule, but only 1 in 9 alerts is right → conditional go, low-cost actions only | [model card](docs/model_card.md) |
 | WS4 Design and Prove | Early warning **loses R$ 40.5k in year 1** at this volume (break-even at 12.7× volume) → recommend route-calibrated ETA + seller SLA; pilot needs **8,438 orders (~6 weeks)** | [FRD and pilot](docs/ws4_frd_and_pilot.md) · [business case](reports/excel/business_case.xlsx) · [seller scorecard](reports/excel/seller_scorecard.xlsx) |
 
+### Key charts
+
+| | |
+|---|---|
+| ![Score by delay](reports/figures/fig1_score_by_delay.png) | ![Stage days](reports/figures/fig2_stage_days.png) |
+| ![States vs ETA buffer](reports/figures/fig3_states_buffer.png) | ![Model recall](reports/figures/fig5_model_recall.png) |
+
+Process maps and wireframes: [As-Is](design/as_is_process.svg) · [To-Be](design/to_be_process.svg) · [Driver tree](design/driver_tree.svg) · [Seller portal](design/wireframe_seller_portal.svg) · [Ops dashboard](design/wireframe_ops_dashboard.svg)
+
 ---
 
 ## Approach
@@ -79,6 +88,8 @@ docs/              BRD, KPI dictionary, data profile, model card
    python src/ws2_sample.py               # WS2: labelling sample (then see docs/ws2_runbook.md)
    python src/ws3_model.py                # WS3: risk model
    python src/ws4_build_excel.py          # WS4: Excel business case and scorecard
+   python src/make_figures.py             # charts in reports/figures
+   python src/make_diagrams.py            # process maps and wireframes in design/
    ```
 4. Power BI: follow [reports/powerbi/BUILD_GUIDE.md](reports/powerbi/BUILD_GUIDE.md).
 
@@ -97,8 +108,9 @@ docs/              BRD, KPI dictionary, data profile, model card
 - [ ] WS2 human labels + LLM run (local LM Studio)
 - [x] WS3 Predict: model, SHAP, model card
 - [x] WS4 business case, seller scorecard, FRD, pilot plan
-- [ ] WS4 Figma wireframes
-- [ ] Executive deck and video (week 10)
+- [x] Process maps (As-Is, To-Be), driver tree, wireframes (SVG)
+- [x] Executive deck (10 slides), interview prep, video script, LinkedIn draft
+- [ ] Record the video and publish the post
 
 ---
 

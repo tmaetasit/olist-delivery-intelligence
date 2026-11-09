@@ -22,6 +22,18 @@ Analysis window: Jan 2017 – Aug 2018 (99,092 orders; 96,203 delivered).
 
 ---
 
+## Results so far
+
+| Workstream | Key result | Detail |
+|---|---|---|
+| WS0 Data Foundation | SQLite star schema, **19/19 data quality tests pass**; problem rows flagged, not deleted | [cleaning log](docs/data_cleaning_log.md) · [data dictionary](docs/data_dictionary.md) · [DQ report](docs/data_quality_report.md) |
+| WS1 Diagnose | Late orders lose **+19.9 days in carrier transit** vs +2.9 at the seller; **72%** of late orders had an on-time seller. State late rate ranges 2.8%–21.5% and moves with the ETA buffer (r = −0.72): the promise is not calibrated by route | [findings](docs/ws1_findings.md) |
+| WS2 Voice of Customer | Kit ready: taxonomy, 200-review labelling sample, local-LLM classifier and evaluator. Multi-seller orders have a **47%** low-review rate vs 12% | [runbook](docs/ws2_runbook.md) |
+| WS3 Predict | Logistic regression catches **24.6%** of late orders in its top 10% vs **14.2%** for the seller-history rule, but only 1 in 9 alerts is right → conditional go, low-cost actions only | [model card](docs/model_card.md) |
+| WS4 Design and Prove | Early warning **loses R$ 40.5k in year 1** at this volume (break-even at 12.7× volume) → recommend route-calibrated ETA + seller SLA; pilot needs **8,438 orders (~6 weeks)** | [FRD and pilot](docs/ws4_frd_and_pilot.md) · [business case](reports/excel/business_case.xlsx) · [seller scorecard](reports/excel/seller_scorecard.xlsx) |
+
+---
+
 ## Approach
 
 | Workstream | Question | Methods and tools |
@@ -58,7 +70,17 @@ docs/              BRD, KPI dictionary, data profile, model card
 
 1. Download the dataset from [Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) and put the 9 CSV files in `data/raw/`.
 2. Install Python packages: `pip install -r requirements.txt`
-3. Run the data profile: `python src/d1_profile.py data/raw`
+3. Run in order:
+   ```
+   python src/d1_profile.py data/raw      # D1 data profile
+   python src/build_db.py data/raw        # WS0: database, tests, CSVs for Power BI
+   python src/ws1_diagnose.py             # WS1: diagnostic tables
+   python src/ws1_process_mining.py       # WS1: process mining
+   python src/ws2_sample.py               # WS2: labelling sample (then see docs/ws2_runbook.md)
+   python src/ws3_model.py                # WS3: risk model
+   python src/ws4_build_excel.py          # WS4: Excel business case and scorecard
+   ```
+4. Power BI: follow [reports/powerbi/BUILD_GUIDE.md](reports/powerbi/BUILD_GUIDE.md).
 
 ---
 
@@ -68,11 +90,14 @@ docs/              BRD, KPI dictionary, data profile, model card
 - [x] D2 BRD v0.2
 - [x] D3 Stakeholder map and RACI
 - [x] D4 Repository set-up
-- [ ] WS0 Data foundation (weeks 2–3)
-- [ ] WS1 Diagnose (weeks 3–4)
-- [ ] WS2 Voice of customer (weeks 4–5)
-- [ ] WS3 Predict (weeks 5–7)
-- [ ] WS4 Design and prove (weeks 8–9)
+- [x] WS0 Data foundation: SQL pipeline, tests, cleaning log, data dictionary
+- [x] WS1 Diagnose: analysis, process mining, DAX measures
+- [ ] WS1 Power BI report (.pbix) — build guide ready
+- [x] WS2 kit: taxonomy, sample, classifier, evaluator
+- [ ] WS2 human labels + LLM run (local LM Studio)
+- [x] WS3 Predict: model, SHAP, model card
+- [x] WS4 business case, seller scorecard, FRD, pilot plan
+- [ ] WS4 Figma wireframes
 - [ ] Executive deck and video (week 10)
 
 ---
